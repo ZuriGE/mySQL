@@ -373,6 +373,37 @@ const main = async () => {
 
 		// //Todos los datos de los profesores
 		// crud(getTeacherData);
+
+		////RETO 2
+		// eliminar notas antiguas
+		let delOldMarks = `DELETE FROM marks WHERE date < '2013-11-21'`;
+		// crud(delOldMarks);
+
+		// subir notas a 5
+		let changeMarks = `UPDATE marks SET mark = 5 WHERE mark < 5`;
+		// crud(changeMarks);
+
+		// //RETO OPCIONAL
+		//número total de elementos en una tabla
+		let countAll = `SELECT COUNT (*) FROM marks`;
+		//en caso de que pueda haber valores null, o repetidos (en id no, pero igual si quieres contar otro campo como apellido)
+		// `SELECT COUNT(DISTINCT student_id) FROM students`
+
+		// crud(countAll);
+
+		/*
+        parte2 ¿Cuál sería una buena práctica para agilizar la velocidad de las consultas sobre tablas que sean excesivamente grandes (que tengan muchas filas)?
+        >> Reemplazar consultas con OR por una concatenación de consultas (conn join y/o union)
+        >> Evitar wildcards en la medida de lo posible
+        >> Al unir las tablas, intentar que la forma sea más parecida a la opción de tipo:  A join B, B join C, C join D, D join E, etc… en vez de A join B, A join C, B join D, C join E, etc… Cuanto mayor es el número de tablas que se utilizan para la consulta más efectivo es hacerlo de la primera manera.
+*/
+
+		// nombre y asignaturas en una misma consulta
+		let id = 5;
+		// Con las notas no  vale porque hemos borrado varias y además podría ser que no se haya examinado
+		// let studentAndSubjects = `SELECT students.first_name, subjects.title FROM students JOIN marks ON students.student_id = marks.student_id JOIN subjects on marks.subject_id = subjects.subject_id WHERE students.student_id=${id}`;
+		let studentAndSubjects = `SELECT students.first_name, subjects.title FROM students JOIN \`groups\` ON students.group_id = groups.group_id JOIN subject_teacher ON groups.group_id = subject_teacher.group_id JOIN subjects ON subject_teacher.subject_id = subjects.subject_id WHERE students.student_id=${id}`;
+		// crud(studentAndSubjects);
 	} catch (error) {
 		console.log(error);
 		await connection.end();

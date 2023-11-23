@@ -403,7 +403,7 @@ const main = async () => {
 		// Con las notas no  vale porque hemos borrado varias y además podría ser que no se haya examinado
 		// let studentAndSubjects = `SELECT students.first_name, subjects.title FROM students JOIN marks ON students.student_id = marks.student_id JOIN subjects on marks.subject_id = subjects.subject_id WHERE students.student_id=${id}`;
 		let studentAndSubjects = `SELECT students.first_name, subjects.title FROM students JOIN \`groups\` ON students.group_id = groups.group_id JOIN subject_teacher ON groups.group_id = subject_teacher.group_id JOIN subjects ON subject_teacher.subject_id = subjects.subject_id WHERE students.student_id=${id}`;
-		// crud(studentAndSubjects);
+		crud(studentAndSubjects);
 	} catch (error) {
 		console.log(error);
 		await connection.end();

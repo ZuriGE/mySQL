@@ -30,7 +30,7 @@ const main = async () => {
 		// console.log("Consula OK");
 		// console.log(resultLoans);
 
-		let exp_mode_sql = "SELECT COUNT(piece.piece_id) as num_pieces, exp_mode.description FROM piece JOIN collection on piece.collection_id = collection.collection_id JOIN exp_mode ON collection.exp_mode_id = exp_mode.exp_mode_id GROUP BY collection.exp_mode_id order by num_pieces DESC";
+		let exp_mode_sql = "SELECT COUNT(piece.piece_id) as num_pieces, exp_mode.description FROM piece JOIN collection on piece.collection_id = collection.collection_id JOIN exp_mode ON collection.exp_mode_id = exp_mode.exp_mode_id GROUP BY collection.exp_mode_id ORDER BY num_pieces DESC";
 		let [resultExp_mode] = await connection.query(exp_mode_sql);
 		console.log("Consula OK");
 		console.log(resultExp_mode);

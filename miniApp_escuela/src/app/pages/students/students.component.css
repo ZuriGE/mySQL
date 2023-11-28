@@ -1,0 +1,141 @@
+.formContainer {
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+}
+
+.btnWrapper {
+    border: 1px solid blue;
+    display: flex;
+    justify-content: space-around;
+    padding: 1.5rem 0
+}
+
+.btn {
+    /* border: 1px solid green; */
+    width: 15%;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .8rem;
+    background-color: var(--light2);
+    color: var(--dark2);
+    transition: all linear 0.2s;
+    box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.452);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.inputWraper {
+    border: 1px solid green
+}
+
+form {
+    width: 80%;
+}
+
+input {
+    width: 100%;
+    border: 1px solid rgb(228, 228, 228);
+    padding: 0.3rem 1rem;
+    border-radius: 5px
+}
+
+label {
+    font-weight: 600;
+    color: var(--dark1)
+}
+
+.btn span {
+    display: none;
+}
+
+.table-container {
+    border: 1px solid blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    border-bottom: 1px solid #fff;
+
+}
+
+table th,
+table td {
+    text-align: center;
+    border-top: 1px solid #fff;
+    height: 1.5rem;
+}
+
+.empty {
+    display: none;
+}
+
+@media(min-width:760px) {
+    form {
+        width: 60%;
+    }
+
+    label {
+
+        text-align: center;
+    }
+
+    .inputWraper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .form-group {
+        width: 18%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn span {
+        display: block;
+    }
+
+    .btn {
+
+        width: 15%;
+        aspect-ratio: 2/1;
+        justify-content: space-evenly;
+    }
+
+    .mobileOnly {
+        display: none;
+    }
+
+    .empty {
+        display: block;
+
+    }
+
+    table {
+        width: 60%;
+    }
+
+    table th,
+    table td {
+        width: 18%;
+    }
+
+    .empty {
+        width: 2.5%;
+    }
+
+
+
+}

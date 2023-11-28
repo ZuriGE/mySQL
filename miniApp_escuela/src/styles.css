@@ -1,0 +1,46 @@
+:root {
+    --dark1: #132043;
+    --dark2: #1F4172;
+    --light1: #FDF0F0;
+    --light2: #9ad0c2;
+
+    --contrast: #e7707e;
+    --contrast2: rgb(160, 43, 57);
+    --sans: 'Montserrat', sans-serif;
+
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--sans);
+    list-style: none;
+    text-decoration: none;
+
+}
+
+html,
+body,
+app-root {
+    height: 100%;
+}
+
+html {
+    padding-top: 70px;
+    background-color: var(--light1);
+    overflow-x: hidden;
+}
+
+body {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+/* input, */
+a,
+button {
+    all: unset;
+    cursor: pointer
+}

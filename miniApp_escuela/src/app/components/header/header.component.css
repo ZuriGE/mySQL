@@ -1,0 +1,113 @@
+header {
+    background-color: var(--dark1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+
+}
+
+.pc {
+    display: none
+}
+
+.nav_bar {
+    display: flex;
+    width: 100vw;
+
+    justify-content: space-between;
+    padding: 0 1.5rem
+}
+
+button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.fa-solid {
+    font-size: 2rem;
+}
+
+.fa-x {
+    color: var(--contrast2);
+}
+
+.fa-bars {
+    color: var(--light1);
+}
+
+.logo {
+    height: 3rem;
+}
+
+
+.mobile {
+    position: absolute;
+    top: 4rem;
+    right: 0;
+    left: 0;
+    margin: auto;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.2);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(108, 241, 210, 0.16);
+    padding: 1rem;
+    text-align: center;
+}
+
+.mobile li {
+    padding: 0.3rem;
+    font-size: 1.2rem;
+
+}
+
+@media(min-width:760px) {
+
+
+
+    .fa-solid,
+    .mobile {
+        display: none;
+    }
+
+    .nav_bar {
+        justify-content: flex-start;
+        padding: 0 10vw
+    }
+
+    .pc {
+        display: flex;
+
+        align-items: center;
+        padding: 5px 1rem 0;
+    }
+
+    .pc li {
+        padding: 0 3vw;
+        font-size: 1.3rem;
+        color: var(--light1);
+        transition: all ease-in 0.3s;
+        cursor: pointer
+    }
+
+    .pc li:hover {
+        color: var(--contrast);
+
+    }
+
+    a {
+        transition: all ease-in 0.3s;
+    }
+
+    a.active {
+        color: var(--contrast);
+    }
+}

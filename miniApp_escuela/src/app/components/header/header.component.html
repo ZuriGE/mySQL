@@ -1,0 +1,31 @@
+<header>
+  <nav class="nav_bar">
+    <img src="/assets/logo-no-background.png" alt="" class="logo" />
+    <button (click)="isVisible = !isVisible">
+      <i class="fa-solid" [ngClass]="isVisible ? 'fa-x' : 'fa-bars'"></i>
+    </button>
+
+    <ul class="mobile menuList" *ngIf="isVisible">
+      <li *ngFor="let menu of navMenu">
+        <a
+          class="nav__link nav__link--home"
+          (click)="isVisible = !isVisible"
+          [routerLink]="menu.link"
+          >{{ menu.name }}</a
+        >
+      </li>
+    </ul>
+
+    <ul class="pc">
+      <li *ngFor="let menu of navMenu">
+        <a
+          class="nav__link nav__link--home"
+          (click)="activeNav(menu.link)"
+          [class.active]="menu.link === activeLink"
+          [routerLink]="menu.link"
+          >{{ menu.name }}</a
+        >
+      </li>
+    </ul>
+  </nav>
+</header>

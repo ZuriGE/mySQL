@@ -1,0 +1,74 @@
+<div class="formContainer">
+  <form [formGroup]="studentForm">
+    <div class="btnWrapper">
+      <button
+        class="btn b1"
+        (click)="showStudent()"
+        title="Buscar todos o por ID"
+      >
+        <span>Mostrar</span>
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+      <button class="btn b2" (click)="newStudent()">
+        <span>Crear (*)</span>
+        <i class="fa-solid fa-circle-plus"></i>
+      </button>
+      <button class="btn b3">
+        <span>Actualizar</span>
+        <i class="fa-solid fa-rotate"></i>
+      </button>
+      <button class="btn b4">
+        <span>Eliminar</span>
+        <i class="fa-solid fa-trash"></i>
+      </button>
+    </div>
+    <div class="inputWraper">
+      <div class="form-group id">
+        <label>ID</label>
+        <input type="number" class="formInput" formControlName="student_id" />
+      </div>
+      <div class="form-group name">
+        <label>NOMBRE *</label>
+        <input type="text" class="formInput" formControlName="first_name" />
+      </div>
+      <div class="form-group lName">
+        <label>APELLIDO *</label>
+        <input type="text" class="formInput" formControlName="last_name" />
+      </div>
+      <div class="form-group group">
+        <label>GRUPO *</label>
+        <input type="number" class="formInput" formControlName="group_id" />
+      </div>
+      <div class="form-group year">
+        <label>AÑO *</label>
+        <input type="number" class="formInput" formControlName="year" />
+      </div>
+    </div>
+  </form>
+</div>
+<div class="table-container" *ngIf="showTable">
+  <table>
+    <thead class="mobileOnly">
+      <tr>
+        <th>ID</th>
+        <th>NOMBRE</th>
+        <th>APELLIDO</th>
+        <th>GRUPO</th>
+        <th>AÑO</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{ student.student_id }}</td>
+        <td class="empty"></td>
+        <td>{{ student.first_name }}</td>
+        <td class="empty"></td>
+        <td>{{ student.last_name }}</td>
+        <td class="empty"></td>
+        <td>{{ student.group_id }}</td>
+        <td class="empty"></td>
+        <td>{{ student.year }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -4,6 +4,8 @@ const getStudent = async (req, res) => {
 	try {
 		let sql;
 		let params = [];
+		let ans;
+		console.log(req.query.student_id);
 		if (req.query.student_id == null) {
 			sql = "SELECT * FROM students";
 		} else {
@@ -11,8 +13,16 @@ const getStudent = async (req, res) => {
 			params.push(`${req.query.student_id}`);
 		}
 		let [result] = await pool.query(sql, params);
+
 		console.log(result);
-		res.send(result);
+		if (result.length == 0) {
+			ans = { error: true, code: 1, message: "student not found", data: result };
+		} else {
+			ans = { error: false, code: 200, message: "student found", data: result };
+		}
+
+		console.log(result);
+		res.send(ans);
 	} catch (err) {
 		console.log(err);
 	}
@@ -28,10 +38,13 @@ const postStudent = async (req, res) => {
 		console.log(result);
 
 		if (result.insertId) {
-			res.send(String(result.insertId));
+			// res.send(String(result.insertId));
+			ans = { error: false, code: 200, message: String(result.insertId), data: result };
 		} else {
-			res.send("-1");
+			ans = { error: true, code: 1, message: "student not created", data: result };
 		}
+
+		res.send(ans);
 	} catch (err) {
 		console.log(err);
 	}

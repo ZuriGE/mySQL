@@ -1,0 +1,30 @@
+.footer {
+    position: absolut;
+    height: 50px;
+    background-color: var(--dark2);
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    margin-top: auto;
+
+}
+
+
+.footer a {
+    padding: 0 2vw
+}
+
+.fa-brands {
+    color: var(--light2);
+    font-size: 40px;
+    transition: linear all 0.2s
+}
+
+.fa-brands:hover {
+    color: var(--contrast);
+}

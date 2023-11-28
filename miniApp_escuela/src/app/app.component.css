@@ -1,0 +1,12 @@
+.page-container--ext {
+    min-height: 100%;
+}
+
+.page-container--int {
+    padding-bottom: 70px;
+}
+
+.footer-container {
+    height: 50px;
+    margin-top: -50px
+}
